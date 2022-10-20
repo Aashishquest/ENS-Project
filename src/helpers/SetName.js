@@ -26,7 +26,7 @@ export const setENSName = async (ENSname, timestamp) => {
 		return false;
 	}
 
-  let node = web3connect.utils.sha3(ENSname, timestamp);
+  let node = web3connect.utils.sha3(ENSname);
   console.log("node", node);
 	let selectedAccount = accounts[0];
   console.log(selectedAccount)

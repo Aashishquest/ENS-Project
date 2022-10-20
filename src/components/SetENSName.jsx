@@ -12,7 +12,8 @@ export const SetENSName = () => {
     const [Resolver, setResolver] = useState("");
     const [UserAddress, setUserAddress] = useState("");
     const [inputValue, setInputValue] = useState({
-        walletAdd: ""
+        name: "",
+        time: ""
         })
         const formdata = (e) => {
         const name = e.target.name
