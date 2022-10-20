@@ -13,8 +13,6 @@ const providerOptions = {
         56: "https://bsc-dataseed1.binance.org/",
         97: "https://data-seed-prebsc-1-s3.binance.org:8545",
         1: "https://mainnet.infura.io/v3/aa8fc14b45b3474bb3fe67576b112bae",
-        3: "https://ropsten.infura.io/v3/aa8fc14b45b3474bb3fe67576b112bae",
-        4: "https://rinkeby.infura.io/v3/aa8fc14b45b3474bb3fe67576b112bae",
         5: "https://goerli.infura.io/v3/aa8fc14b45b3474bb3fe67576b112bae",
         137: "https://rpc-mainnet.maticvigil.com",
         80001: "https://rpc-mumbai.matic.today",
@@ -41,61 +39,6 @@ export const web3 = async () => {
   return web3;
 };
 
-// export const Addnetwork = async () => {
-//   const provider = await web3Modal.connect();
-//   console.log(provider);
-//   await provider.request({
-//     method: 'wallet_addEthereumChain',
-//     params: [{
-//       chainId: '0x4CB',
-//       chainName: 'CyCoin POA',
-//       nativeCurrency: {
-//         name: 'Karbun',
-//         symbol: 'KBN',
-//         decimals: 18
-//       },
-//       rpcUrls: ['https://mainnet.cycoin.com:8502'],
-//       iconUrls: ['https://cyswap.com/images/tokens/samk-square.png'],
-//       blockExplorerUrls: ['https://cyexplorer.com/']
-//     }]
-//   })
-//     .catch((error) => {
-//       console.log(error)
-//     })
-// }
-
-
-export const AddAssets = async () => {
-  const provider = await web3Modal.connect();
-  const tokenAddress = '0x9C3701F6f4740D6f2CCda36A8eA50D8E775AB91a';
-  const tokenSymbol = 'KBN';
-  const tokenDecimals = 18;
-  const tokenImage = 'https://karbun.io/favicon.png';
-
-  try {
-    // wasAdded is a boolean. Like any RPC method, an error may be thrown.
-    const wasAdded = await provider.request({
-      method: 'wallet_watchAsset',
-      params: {
-        type: 'ERC20', // Initially only supports ERC20, but eventually more!
-        options: {
-          address: tokenAddress, // The address that the token is at.
-          symbol: tokenSymbol, // A ticker symbol or shorthand, up to 5 chars.
-          decimals: tokenDecimals, // The number of decimals in the token
-          image: tokenImage, // A string url of the token logo
-        },
-      },
-    });
-
-    if (wasAdded) {
-      console.log('Thanks for your interest!');
-    } else {
-      console.log('Your loss!');
-    }
-  } catch (error) {
-    console.log(error);
-  }
-};
 
 export const _switch = async () => {
   const provider = await web3Modal.connect();
@@ -103,7 +46,7 @@ export const _switch = async () => {
   try {
     await provider.request({
       method: 'wallet_switchEthereumChain',
-      params: [{ chainId: "0x38" }],
+      params: [{ chainId: "0x61" }],
     });
     toast.update(id, { render: "You have successfully switched to Binance Network", type: "success", isLoading: false, autoClose: 2000 });
     window.location.reload();
@@ -113,15 +56,15 @@ export const _switch = async () => {
       await provider.request({
         method: 'wallet_addEthereumChain',
         params: [{
-          chainId: '0x38',
-          chainName: 'Binance Network',
+          chainId: '0x61',
+          chainName: 'Binance Test Network',
           nativeCurrency: {
             name: 'Binance Coin',
             symbol: 'BNB',
             decimals: 18
           },
-          rpcUrls: ['https://bsc-dataseed1.binance.org/'],
-          blockExplorerUrls: ['https://bscscan.com']
+          rpcUrls: ['https://data-seed-prebsc-1-s3.binance.org:8545'],
+          blockExplorerUrls: ['https://testnet.bscscan.com']
         }]
       })
         .catch((error) => {

@@ -10,7 +10,7 @@ const accounts = await web3connect.eth.getAccounts();
 let selectedAccount = accounts[0];
 const chainId = await web3connect.eth.getChainId();
 let m_message = ""
-if(chainId != 56){
+if(chainId != 97){
   // toast.warn('Please Switch To Binance Network');
   m_message = "Please Switch To Binance Network"
   // _switch();
