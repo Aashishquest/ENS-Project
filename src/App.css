@@ -1,0 +1,38 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+#section1 .main{
+padding-top: 30px;
+  text-align: center;
+  background-color: #f8f9fa;
+  height: 100vh;
+}
+#section1 .main .main1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+}
+#section1 .main input{
+  width: 350px;
+  height: 30px;
+}
+#section1 .main .iconclass{
+  background-color: #3498db;
+  padding: 10px;
+  color: white;
+}
+#section1 .main .para{
+  color: red;
+}
+#section1 .main .tableview{
+  text-align: left;
+  border: 1px solid;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+#section1 .main .tableview tbody tr{
+  border-bottom: 1px solid black !important;
+}
